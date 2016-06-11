@@ -1,0 +1,30 @@
+{
+  "name": "moment-indefinite-precision",
+  "version": "0.0.1",
+  "description": "A moment.js plugin for formatting durations.",
+  "main": "lib/moment-indefinite-precision.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sdvi/moment-indefinite-precision.git"
+  },
+  "authors": [
+    ""
+  ],
+  "keywords": [
+    "moment",
+    "duration",
+    "format",
+    "precision"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "homepage": "https://github.com/sdvi/moment-indefinite-precision",
+  "dependencies": {
+    "moment": "^2.0"
+  }
+}
