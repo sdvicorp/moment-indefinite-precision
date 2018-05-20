@@ -4,16 +4,16 @@ This is a plugin for the <a href="http://momentjs.com/">moment.js</a> JavaScript
 
 Moment contains some support for formatting durations, however it performs a lot of 'rounding' on the result and yields only an approximate description. This is often great for readability, giving the user a sense of roughly when an event occurred or roughly how long a process took.  This does not work so well if one needs to accurately display the running time of a process, or say, the duration of a movie clip.
 
-In the example below the is 3 days, 6 hours, 12 minutes and 15 seconds exactly, however this is simplified to just '3 days' by the library.
+In the example below the is 3 days, 6 hours, 12 minutes and 15 seconds exactly, however this is simplified to just '3 days' by the humanize.
 
     var runTime = moment.duration({days: 3, hours: 6, minutes: 12, seconds: 15});
     runTime.humanize(); // "3 days"
 
-Using the indifinite-precision plugin, a humanized version of the duration can be displayed and still retain (some) precision:
+Using the indefinite-precision plugin, a humanized version of the duration can be displayed and still retain (some) precision:
 
     var runTime = moment.duration({days: 3, hours: 6, minutes: 12, seconds: 15});
     runTime.indefinitePrecision(); // "3 days 6 hours 12 minutes 15 seconds"
-    runTime.indefinitePrecision('short'); // "3d 6h 12m  15s"
+    runTime.indefinitePrecision('short'); // "3d 6h 12m 15s"
 
 To obtain the full set of numeric values as an object instead of a string, pass the value `true` to the method:
 
@@ -40,6 +40,8 @@ Note also that the plugin will remove all units with a zero value before process
 **Node.js**
 
 `npm install moment-indefinite-precision`
+-- or --
+`yarn add moment-indefinite-precision`
 
 **Bower**
 
@@ -59,13 +61,13 @@ To use the plugin in a web page, add a `<script>` tag referencing the moment-ind
 To use the plugin as a module, add the following `require` statement into your code:
 
     require('moment-indefinite-precision-plugin');
-    
+
 The plugin does not export anything, so there is no need to assign the require output to a variable.
 
 The plugin  depends on `moment.js`, which is specified as a package dependency.
 
 ### Basics
-    
+
 The duration `indefinitePrecision` function can format any moment duration. If no parameters are provided, the default will generate a string based on the duration's values using the 'long' format. Parameter values are as follows:
 
 * 'long' - display string output using long format ('4 months 2 days 5 hours 15 minutes')
@@ -85,7 +87,7 @@ A precision object can be passed as the second parameter to change the default p
   years:           5, // zero hours if year >= n
   months:          6, // zero minutes if month >= n
   days:            1, // zero seconds if day >= n
-  minutes:         3, // zero milliseconds if minute >= n
+  minutes:         5, // zero milliseconds if minute >= n
 }
 ```
 The indefinite-precision plugin always eliminates zero values from the output.  The precision values will zero additional least-significant units based on the magnitude of more significant units.  For example, with the default values shown above milliseconds will be removed (zeroed-out) if the duration is 3 minutes or longer.
